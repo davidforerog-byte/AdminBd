@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Design System & Base Styles for QueHayPaHacer
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Color Palette - Premium Modern */
+    --primary-color: #E59D2C; /* Oro */
+    --primary-hover: #CC8A24; /* Oro oscuro para hover */
+    --secondary-color: #F3D58D; /* Mantequilla */
+    --accent-color: #F59E0B; /* Amber for pending/warnings */
+    --bg-main: #EBDDC5; /* Perla (Fondo) */
+    --bg-card: rgba(255, 255, 255, 0.6); /* Tarjetas claras translúcidas */
+    --text-main: #2E4365; /* Azul (Textos) */
+    --text-muted: #5A6D8A; /* Azul claro (Textos secundarios) */
+    --border-color: rgba(46, 67, 101, 0.15); /* Bordes azul translúcido */
+    
+    /* Utilities */
+    --glass-blur: blur(16px);
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Premium background gradient adapted for light mode */
+    background: radial-gradient(circle at top right, #fcf8f0, var(--bg-main) 60%);
+    background-attachment: fixed;
+}
+
+/* ==========================================================================
+   Typography & Basic Elements
+   ========================================================================== */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #8A3B08; /* Cafe */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   UI Components (Glassmorphism)
+   ========================================================================== */
+.glass-panel {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 25px 50px -12px rgba(46, 67, 101, 0.15); /* Sombra azul claro en lugar de negro profundo */
+}
+
+/* ==========================================================================
+   Forms & Inputs
+   ========================================================================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(229, 157, 44, 0.2); /* Sombra oro */
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(229, 157, 44, 0.4); /* Sombra oro */
+}
+
+/* ==========================================================================
+   Login/Landing Page Specific
+   ========================================================================== */
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.auth-logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #8A3B08, #E59D2C); /* Cafe a Oro */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Animation utilities */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
